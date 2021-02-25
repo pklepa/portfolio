@@ -1,0 +1,43 @@
+.logoContainer {
+  position: relative;
+  z-index: 10;
+
+  h1 {
+    padding: 16px 16px 20px;
+    border-radius: 4px;
+    background-color: var(--black);
+
+    color: var(--primary);
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 50px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * 4px);
+    left: calc(-1 * 4px);
+    z-index: -1;
+
+    width: calc(100% + 4px * 2);
+    height: calc(100% + 4px * 2);
+
+    background: linear-gradient(
+      90deg,
+      var(--black),
+      var(--primary),
+      var(--black)
+    );
+    background-size: 200% 200%;
+    background-position: 0 -50%;
+    border-radius: 4px;
+
+    animation: moveGradient 8s ease-in-out infinite;
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}

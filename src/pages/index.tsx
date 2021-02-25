@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.scss';
+import AnimatedLogo from '../components/AnimatedLogo';
+import styles from '../styles/pages/Home.module.scss';
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
       </Head>
 
       <div className={styles.container}>
-        <h1>hello mundo</h1>
+        <AnimatedLogo />
       </div>
     </>
   );
