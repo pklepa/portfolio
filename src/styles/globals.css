@@ -3,6 +3,9 @@
   --black-deep: #000;
   --grey: #999;
   --primary: #f8efd4;
+
+  font-size: 18px;
+  font-family: 'Dosis', sans-serif;
 }
 
 ::-webkit-scrollbar-track {
