@@ -5,8 +5,9 @@
   align-items: center;
 
   min-height: 100vh;
+  background-color: var(--black);
 
   h1 {
-    color: salmon;
+    color: var(--primary);
   }
 }

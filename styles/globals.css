@@ -1,0 +1,19 @@
+:root {
+  --black: #222;
+  --black-deep: #000;
+  --grey: #999;
+  --primary: #f8efd4;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #666;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #666;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
