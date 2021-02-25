@@ -8,6 +8,7 @@ function AnimatedLogo(): ReactElement<Props> {
   return (
     <div className={styles.logoContainer}>
       <h1>pedro klepa</h1>
+      <div className={styles.gradientBackground} />
     </div>
   );
 }
