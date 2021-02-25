@@ -1,0 +1,9 @@
+@mixin moveGradient {
+  animation: moveGradientAnim 8s ease-in-out infinite;
+}
+
+@keyframes moveGradientAnim {
+  50% {
+    background-position: 100% 50%;
+  }
+}

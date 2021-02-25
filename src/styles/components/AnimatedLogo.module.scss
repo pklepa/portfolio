@@ -1,3 +1,5 @@
+@import '../mixins/animations.scss';
+
 .logoContainer {
   position: relative;
   z-index: 10;
@@ -32,12 +34,6 @@
     background-position: 0 -50%;
     border-radius: 4px;
 
-    animation: moveGradient 8s ease-in-out infinite;
-  }
-}
-
-@keyframes moveGradient {
-  50% {
-    background-position: 100% 50%;
+    @include moveGradient;
   }
 }
