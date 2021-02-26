@@ -20,6 +20,24 @@
     font-size: 50px;
   }
 
+  .nameInitials {
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+    }
+  }
+
+  .nameFull {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    text-align: center;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
   .solidBackground {
     position: absolute;
     top: 0;

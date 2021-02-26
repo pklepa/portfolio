@@ -6,8 +6,13 @@ import styles from '../styles/components/AnimatedLogo.module.scss';
 interface Props {}
 
 function AnimatedLogo(): ReactElement<Props> {
-  let solidBackgroundAnim = useAnimation();
-  let gradientBackgroundAnim = useAnimation();
+  const solidBackgroundAnim = useAnimation();
+  const gradientBackgroundAnim = useAnimation();
+  const initialsAnims = {
+    p: useAnimation(),
+    k: useAnimation(),
+  };
+  const fullNameAnim = useAnimation();
   const [toggle, setToggle] = useState(false);
 
   const controls = {
@@ -42,11 +47,35 @@ function AnimatedLogo(): ReactElement<Props> {
         transition: { duration: 1 },
       });
     },
+
+    initialsP: async () => {
+      await initialsAnims.p.start({
+        transform: [
+          'translateX(-18px) translateY(-26px)',
+          'translateX(-18px) translateY(-26px)',
+          'translateX(-86px) translateY(-26px)',
+        ],
+        transition: { duration: 3, times: [0, 0.66, 1] },
+      });
+    },
+
+    initialsK: async () => {
+      await initialsAnims.k.start({
+        transform: [
+          'translateX(1px) translateY(-26px)',
+          'translateX(1px) translateY(-26px)',
+          'translateX(8px) translateY(-26px)',
+        ],
+        transition: { duration: 3, times: [0, 0.66, 1] },
+      });
+    },
   };
 
   useEffect(() => {
     controls.solidBackground();
     controls.gradientBackground();
+    controls.initialsP();
+    controls.initialsK();
   }, []);
 
   return (
@@ -55,7 +84,11 @@ function AnimatedLogo(): ReactElement<Props> {
       transition={{ duration: 1, delay: 2 }}
       className={styles.logoContainer}
     >
-      <h1>pk</h1>
+      <h1 className={styles.nameInitials}>
+        <motion.span animate={initialsAnims.p}>p</motion.span>
+        <motion.span animate={initialsAnims.k}>k</motion.span>
+      </h1>
+      {/* <h1 className={styles.nameFull}>pedro klepa</h1> */}
 
       <motion.div
         animate={solidBackgroundAnim}
