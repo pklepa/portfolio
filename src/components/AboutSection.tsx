@@ -22,8 +22,14 @@ function AboutSection(): ReactElement {
           well acquainted to bringing out solutions to complex problems.
         </p>
 
-        <ScrollingText direction="left" />
-        <ScrollingText direction="right" />
+        <ScrollingText
+          text="Full-stack JavaScript Developer &middot; "
+          direction="left"
+        />
+
+        <ScrollingText text="Front-end Developer &middot; " direction="right" />
+
+        <ScrollingText text="Cool Millenial Fella &middot; " direction="left" />
 
         <Button text="Say Hello" isPrimary />
       </div>
