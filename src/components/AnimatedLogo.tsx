@@ -48,6 +48,13 @@ function AnimatedLogo(): ReactElement<Props> {
       });
     },
 
+    fullName: async () => {
+      await fullNameAnim.start({
+        opacity: [0, 1],
+        transition: { duration: 0.8, delay: 3 },
+      });
+    },
+
     initialsP: async () => {
       await initialsAnims.p.start({
         transform: [
@@ -56,6 +63,11 @@ function AnimatedLogo(): ReactElement<Props> {
           'translateX(-86px) translateY(-26px)',
         ],
         transition: { duration: 3, times: [0, 0.66, 1] },
+      });
+
+      await initialsAnims.p.start({
+        opacity: [1, 0],
+        transition: { duration: 1, delay: 0.5 },
       });
     },
 
@@ -68,12 +80,18 @@ function AnimatedLogo(): ReactElement<Props> {
         ],
         transition: { duration: 3, times: [0, 0.66, 1] },
       });
+
+      await initialsAnims.k.start({
+        opacity: [1, 0],
+        transition: { duration: 1, delay: 0.5 },
+      });
     },
   };
 
   useEffect(() => {
     controls.solidBackground();
     controls.gradientBackground();
+    controls.fullName();
     controls.initialsP();
     controls.initialsK();
   }, []);
@@ -88,7 +106,9 @@ function AnimatedLogo(): ReactElement<Props> {
         <motion.span animate={initialsAnims.p}>p</motion.span>
         <motion.span animate={initialsAnims.k}>k</motion.span>
       </h1>
-      {/* <h1 className={styles.nameFull}>pedro klepa</h1> */}
+      <motion.h1 animate={fullNameAnim} className={styles.nameFull}>
+        pedro klepa
+      </motion.h1>
 
       <motion.div
         animate={solidBackgroundAnim}
