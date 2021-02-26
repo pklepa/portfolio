@@ -14,6 +14,9 @@
 
   transition: all 0.4s;
   cursor: pointer;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
 
   &.primary {
     border-width: 3px;
@@ -21,9 +24,27 @@
     font-weight: 600;
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -150%;
+    left: -10px;
+    z-index: -1;
+
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: var(--primary);
+    transition: 0.4s;
+    opacity: 1;
+  }
+
   &:hover {
     background-color: var(--primary);
     color: var(--black);
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+
+    &::before {
+      transform: translateY(calc(-100% + 3px));
+    }
   }
 }
