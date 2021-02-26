@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  z-index: 10;
+
+  img {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+
+    margin-top: 40px;
+
+    &.secondary {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      filter: blur(2px) opacity(0.5);
+    }
+
+    &.left {
+      left: -50px;
+    }
+
+    &.right {
+      right: -50px;
+    }
+  }
+}

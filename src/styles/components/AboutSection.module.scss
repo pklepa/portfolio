@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 30px 30px;
+  width: 100%;
+  min-height: 100vh;
+
+  h1 {
+    color: var(--primary);
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .line {
+    flex: 1;
+    height: 2px;
+    margin-left: 20px;
+    background-color: var(--primary);
+  }
+}

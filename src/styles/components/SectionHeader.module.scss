@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  h1 {
+    color: var(--primary);
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 30px;
+  }
+
+  .line {
+    flex: 1;
+    height: 1px;
+    margin-left: 20px;
+    background-color: var(--primary);
+  }
+}
