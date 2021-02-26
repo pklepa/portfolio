@@ -1,0 +1,52 @@
+@import '../mixins/animations.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  overflow: hidden;
+
+  margin-top: 30px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-image: linear-gradient(to right, var(--black), transparent);
+    height: 100%;
+    width: 40px;
+
+    z-index: 10;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background-image: linear-gradient(to left, var(--black), transparent);
+    height: 100%;
+    width: 40px;
+
+    z-index: 10;
+  }
+
+  span {
+    color: var(--white);
+    font-size: 24px;
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    white-space: nowrap;
+
+    &.toLeft {
+      @include scrollTextToLeft();
+    }
+
+    &.toRight {
+      @include scrollTextToRight();
+    }
+  }
+}

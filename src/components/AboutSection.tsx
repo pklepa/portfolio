@@ -4,6 +4,7 @@ import styles from '../styles/components/AboutSection.module.scss';
 import SectionHeader from './SectionHeader';
 import ProfilePic from './ProfilePic';
 import Button from './Button';
+import ScrollingText from './ScrollingText';
 
 function AboutSection(): ReactElement {
   return (
@@ -20,6 +21,9 @@ function AboutSection(): ReactElement {
           React and NodeJS, and from my background as an electrical engineer I'm
           well acquainted to bringing out solutions to complex problems.
         </p>
+
+        <ScrollingText direction="left" />
+        <ScrollingText direction="right" />
 
         <Button text="Say Hello" isPrimary />
       </div>

@@ -7,3 +7,20 @@
     background-position: 100% 50%;
   }
 }
+
+@mixin scrollTextToLeft {
+  animation: scrollText 8s linear infinite;
+}
+
+@mixin scrollTextToRight {
+  animation: scrollText 8s linear infinite reverse;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
