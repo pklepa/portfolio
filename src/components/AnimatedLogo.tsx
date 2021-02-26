@@ -17,6 +17,7 @@ function AnimatedLogo(): ReactElement<Props> {
 
       rotate: [0, 0, 270, 270, 0],
       borderRadius: ['10%', '10%', '50%', '40%', '30%', '8px'],
+      transition: { duration: 2 },
     });
 
     await solidBackgroundAnim.start({
@@ -32,6 +33,7 @@ function AnimatedLogo(): ReactElement<Props> {
 
       rotate: [0, 0, 270, 270, 0],
       borderRadius: ['10%', '10%', '50%', '40%', '30%', '8px'],
+      transition: { duration: 2 },
     });
 
     await gradientBackgroundAnim.start({
@@ -55,13 +57,11 @@ function AnimatedLogo(): ReactElement<Props> {
 
       <motion.div
         animate={solidBackgroundAnim}
-        transition={{ duration: 2 }}
         className={styles.solidBackground}
       />
 
       <motion.div
         animate={gradientBackgroundAnim}
-        transition={{ duration: 2 }}
         className={styles.gradientBackground}
       />
     </motion.div>
