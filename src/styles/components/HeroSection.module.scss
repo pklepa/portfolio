@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  position: relative;
+
+  img {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  .firstArrow {
+    animation: mainArrowAnim 2s ease-out infinite;
+    animation-delay: 4s;
+  }
+
+  .secondArrow {
+    animation: supportArrowAnim 2s ease-out infinite;
+    animation-delay: 4.4s;
+  }
+
+  .thirdArrow {
+    animation: supportArrowAnim 2s ease-out infinite;
+    animation-delay: 4.85s;
+  }
+}
+
+@keyframes mainArrowAnim {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  40%,
+  80% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(15px);
+  }
+}
+
+@keyframes supportArrowAnim {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+  }
+  41%,
+  100% {
+    opacity: 0;
+  }
+}

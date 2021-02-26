@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 import styles from '../styles/components/AnimatedLogo.module.scss';
 
-function AnimatedLogo() {
+function AnimatedLogo(): ReactElement {
   const solidBackgroundAnim = useAnimation();
   const gradientBackgroundAnim = useAnimation();
   const initialsAnims = {
