@@ -14,8 +14,10 @@ export default function Home() {
       </Head>
 
       <div className={styles.container}>
-        <HeroSection />
-        <AboutSection />
+        <main>
+          <HeroSection />
+          <AboutSection />
+        </main>
       </div>
     </>
   );
