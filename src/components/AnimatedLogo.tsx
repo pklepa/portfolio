@@ -1,11 +1,9 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 import styles from '../styles/components/AnimatedLogo.module.scss';
 
-interface Props {}
-
-function AnimatedLogo(): ReactElement<Props> {
+function AnimatedLogo() {
   const solidBackgroundAnim = useAnimation();
   const gradientBackgroundAnim = useAnimation();
   const initialsAnims = {
@@ -13,12 +11,12 @@ function AnimatedLogo(): ReactElement<Props> {
     k: useAnimation(),
   };
   const fullNameAnim = useAnimation();
-  const [toggle, setToggle] = useState(false);
 
   const controls = {
     solidBackground: async () => {
       await solidBackgroundAnim.start({
-        opacity: [0.2, 1, 1, 1, 1],
+        opacity: [1, 1, 1, 1, 1],
+        scale: [0.1, 1, 1, 1, 1],
 
         rotate: [0, 0, 270, 270, 0],
         borderRadius: ['10%', '10%', '50%', '50%', '40%', '8px'],
@@ -34,6 +32,7 @@ function AnimatedLogo(): ReactElement<Props> {
     gradientBackground: async () => {
       await gradientBackgroundAnim.start({
         opacity: [0.2, 1, 1, 1, 1],
+        scale: [1.2, 1, 1, 1, 1],
 
         rotate: [0, 0, 270, 270, 0],
         borderRadius: ['10%', '10%', '50%', '50%', '40%', '8px'],
