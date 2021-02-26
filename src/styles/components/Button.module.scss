@@ -1,5 +1,6 @@
 .btn {
   padding: 12px 22px;
+  width: 100%;
 
   border: 0;
   border-radius: 4px;
@@ -14,7 +15,8 @@
   cursor: pointer;
 
   &.primary {
-    border-width: 2px;
+    border-width: 3px;
     font-size: 24px;
+    font-weight: 600;
   }
 }

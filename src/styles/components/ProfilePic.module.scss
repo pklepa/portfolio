@@ -8,8 +8,11 @@
 
   img {
     border-radius: 50%;
-    width: 180px;
-    height: 180px;
+    width: max(50vw, 180px);
+    height: max(50vw, 180px);
+
+    max-width: 240px;
+    max-height: 240px;
 
     margin-top: 40px;
 
