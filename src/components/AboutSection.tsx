@@ -8,32 +8,45 @@ import ScrollingText from './ScrollingText';
 
 function AboutSection(): ReactElement {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <SectionHeader title="About" alignRight />
 
-      <ProfilePic />
+      <div className={styles.grid}>
+        <div className={styles.imageWrapper}>
+          <ProfilePic />
+        </div>
 
-      <div className={styles.aboutWrapper}>
-        <p>
-          Deeply invested in the life-long learning mentality, I'm a full-stack
-          developer who carries a keen eye for design in an user-first approach.
-          My focus is in creating responsive layouts on the JavaScript stack of
-          React and NodeJS, and from my background as an electrical engineer I'm
-          well acquainted to bringing out solutions to complex problems.
-        </p>
+        <div className={styles.aboutWrapper}>
+          <p>
+            Deeply invested in the life-long learning mentality, I'm a
+            full-stack developer who carries a keen eye for design in an
+            user-first approach. My focus is in creating responsive layouts on
+            the JavaScript stack of React and NodeJS, and from my background as
+            an electrical engineer I'm well acquainted to bringing out solutions
+            to complex problems.
+          </p>
 
-        <ScrollingText
-          text="Full-stack JavaScript Developer &middot; "
-          direction="left"
-        />
+          <div className={styles.scrollerContainer}>
+            <h1>I am a</h1>
 
-        <ScrollingText text="Front-end Developer &middot; " direction="right" />
+            <ScrollingText
+              text="Full-stack JavaScript Developer &middot; "
+              direction="left"
+            />
+            <ScrollingText
+              text="Front-end Developer &middot; "
+              direction="right"
+            />
+            <ScrollingText
+              text="Cool Millenial Fella &middot; "
+              direction="left"
+            />
+          </div>
 
-        <ScrollingText text="Cool Millenial Fella &middot; " direction="left" />
-
-        <Button text="Say Hello" isPrimary />
+          <Button text="Say Hello" isPrimary />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

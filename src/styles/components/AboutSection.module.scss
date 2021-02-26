@@ -6,19 +6,23 @@
   padding: 30px 30px;
   width: 100%;
   min-height: 100vh;
+}
 
-  h1 {
-    color: var(--primary);
-    font-family: 'Big Shoulders Stencil Display', cursive;
-    font-size: 24px;
-    font-weight: 400;
-  }
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .line {
-    flex: 1;
-    height: 2px;
-    margin-left: 20px;
-    background-color: var(--primary);
+  @media (min-width: 850px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    .imageWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
@@ -31,6 +35,18 @@
     line-height: 1.5em;
     margin-top: 30px;
     text-indent: 30px;
+  }
+
+  .scrollerContainer {
+    margin: 30px 0;
+
+    h1 {
+      color: var(--primary);
+      font-family: 'Big Shoulders Stencil Display', cursive;
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+    }
   }
 
   button {

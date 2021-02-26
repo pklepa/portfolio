@@ -24,11 +24,28 @@
     }
 
     &.left {
-      left: -50px;
+      left: -80px;
     }
 
     &.right {
-      right: -50px;
+      right: -80px;
+    }
+  }
+
+  @media (min-width: 850px) {
+    img {
+      border-radius: 100px;
+      max-width: 300px;
+      max-height: 300px;
+      margin-top: 0;
+
+      &.left {
+        top: -50px;
+      }
+
+      &.right {
+        top: 50px;
+      }
     }
   }
 }
