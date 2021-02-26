@@ -1,0 +1,20 @@
+.btn {
+  padding: 12px 22px;
+
+  border: 0;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  background-color: var(--black);
+  color: var(--primary);
+
+  font-size: 18px;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  &.primary {
+    border-width: 2px;
+    font-size: 24px;
+  }
+}

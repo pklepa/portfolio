@@ -6,6 +6,7 @@
 
   font-size: 18px;
   font-family: 'Dosis', sans-serif;
+  color: var(--grey);
 }
 
 ::-webkit-scrollbar-track {
