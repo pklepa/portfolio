@@ -16,6 +16,12 @@ function ProfilePic({}: Props): ReactElement {
       />
 
       <img src="/images/pk_draw.jpeg" alt="Small doodle of myself" />
+
+      <img
+        src="/images/pk_draw2.png"
+        alt="Alternative doodle of myself"
+        className={styles.easterEgg}
+      />
     </div>
   );
 }
