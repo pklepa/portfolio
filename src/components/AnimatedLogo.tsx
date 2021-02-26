@@ -18,11 +18,10 @@ function AnimatedLogo(): ReactElement<Props> {
   const controls = {
     solidBackground: async () => {
       await solidBackgroundAnim.start({
-        scale: [1, 1, 1.3, 1.3, 1],
         opacity: [0.2, 1, 1, 1, 1],
 
         rotate: [0, 0, 270, 270, 0],
-        borderRadius: ['10%', '10%', '50%', '40%', '30%', '8px'],
+        borderRadius: ['10%', '10%', '50%', '50%', '40%', '8px'],
         transition: { duration: 2 },
       });
 
@@ -34,11 +33,10 @@ function AnimatedLogo(): ReactElement<Props> {
 
     gradientBackground: async () => {
       await gradientBackgroundAnim.start({
-        scale: [1, 1, 1.3, 1.3, 1],
         opacity: [0.2, 1, 1, 1, 1],
 
         rotate: [0, 0, 270, 270, 0],
-        borderRadius: ['10%', '10%', '50%', '40%', '30%', '8px'],
+        borderRadius: ['10%', '10%', '50%', '50%', '40%', '8px'],
         transition: { duration: 2 },
       });
 
