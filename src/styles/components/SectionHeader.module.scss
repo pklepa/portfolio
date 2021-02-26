@@ -1,4 +1,22 @@
-.container {
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+
+  .emptySpace {
+    display: none;
+  }
+
+  @media (min-width: 850px) {
+    grid-template-columns: 1fr 1fr;
+
+    .emptySpace {
+      display: block;
+    }
+  }
+}
+
+.headerContainer {
   display: flex;
   align-items: center;
   width: 100%;

@@ -7,7 +7,7 @@ import ProfilePic from './ProfilePic';
 function AboutSection(): ReactElement {
   return (
     <div className={styles.container}>
-      <SectionHeader title="About" />
+      <SectionHeader title="About" alignRight />
 
       <ProfilePic />
     </div>
