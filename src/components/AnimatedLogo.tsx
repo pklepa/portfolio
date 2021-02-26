@@ -10,41 +10,43 @@ function AnimatedLogo(): ReactElement<Props> {
   let gradientBackgroundAnim = useAnimation();
   const [toggle, setToggle] = useState(false);
 
-  async function solidBackgroundAnimation() {
-    await solidBackgroundAnim.start({
-      scale: [1, 1, 1.5, 1.5, 1],
-      opacity: [0.2, 1, 1, 1, 1],
+  const controls = {
+    solidBackground: async () => {
+      await solidBackgroundAnim.start({
+        scale: [1, 1, 1.3, 1.3, 1],
+        opacity: [0.2, 1, 1, 1, 1],
 
-      rotate: [0, 0, 270, 270, 0],
-      borderRadius: ['10%', '10%', '50%', '40%', '30%', '8px'],
-      transition: { duration: 2 },
-    });
+        rotate: [0, 0, 270, 270, 0],
+        borderRadius: ['10%', '10%', '50%', '40%', '30%', '8px'],
+        transition: { duration: 2 },
+      });
 
-    await solidBackgroundAnim.start({
-      width: '200px',
-      transition: { duration: 1 },
-    });
-  }
+      await solidBackgroundAnim.start({
+        width: '200px',
+        transition: { duration: 1 },
+      });
+    },
 
-  async function grandientBackgroundAnimation() {
-    await gradientBackgroundAnim.start({
-      scale: [1, 1, 1.5, 1.5, 1],
-      opacity: [0.2, 1, 1, 1, 1],
+    gradientBackground: async () => {
+      await gradientBackgroundAnim.start({
+        scale: [1, 1, 1.3, 1.3, 1],
+        opacity: [0.2, 1, 1, 1, 1],
 
-      rotate: [0, 0, 270, 270, 0],
-      borderRadius: ['10%', '10%', '50%', '40%', '30%', '8px'],
-      transition: { duration: 2 },
-    });
+        rotate: [0, 0, 270, 270, 0],
+        borderRadius: ['10%', '10%', '50%', '40%', '30%', '8px'],
+        transition: { duration: 2 },
+      });
 
-    await gradientBackgroundAnim.start({
-      width: '208px',
-      transition: { duration: 1 },
-    });
-  }
+      await gradientBackgroundAnim.start({
+        width: '208px',
+        transition: { duration: 1 },
+      });
+    },
+  };
 
   useEffect(() => {
-    solidBackgroundAnimation();
-    grandientBackgroundAnimation();
+    controls.solidBackground();
+    controls.gradientBackground();
   }, []);
 
   return (
