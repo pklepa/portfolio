@@ -8,3 +8,45 @@
   padding: 30px 30px;
   margin-top: 50px;
 }
+
+.cardsGrid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  margin-top: 50px;
+
+  .cardWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      color: var(--primary);
+      font-family: 'Big Shoulders Stencil Display', cursive;
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .card {
+      width: min(100%, 300px);
+      height: 400px;
+      margin: 16px 0 30px;
+
+      background-color: var(--true-black);
+      border-radius: 10px;
+    }
+  }
+
+  @media (min-width: 700px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .cardWrapper {
+      margin: 0 16px;
+    }
+  }
+}
