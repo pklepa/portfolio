@@ -180,6 +180,21 @@ function SkillsSection({}: Props): ReactElement {
           </div>
         </div>
       </div>
+
+      <div className={styles.languagesWrapper}>
+        <span>
+          I speak <strong>English</strong>{' '}
+          <img src="/icons/united-kingdom.svg" alt="UK" />
+        </span>
+        <span>
+          Eu falo <strong>português</strong>
+          <img src="/icons/brazil.svg" alt="BR" />
+        </span>
+        <span>
+          Je parle <strong>français</strong>
+          <img src="/icons/france.svg" alt="FR" />
+        </span>
+      </div>
     </section>
   );
 }

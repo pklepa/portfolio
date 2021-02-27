@@ -16,63 +16,103 @@
 
   margin-top: 50px;
 
-  .cardWrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h1 {
-      color: var(--primary);
-      font-family: 'Big Shoulders Stencil Display', cursive;
-      font-size: 24px;
-      font-weight: 400;
-      text-align: center;
-    }
-
-    .card {
-      width: min(100%, 300px);
-      height: 400px;
-      margin: 16px 0 30px;
-
-      background-color: var(--true-black);
-      border-radius: 10px;
-
-      padding: 10px 8px 40px;
-
-      display: flex;
-      flex-direction: column;
-
-      .row {
-        flex: 1;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-evenly;
-
-        .item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          transition: 0.2s;
-
-          h2 {
-            color: var(--primary);
-            text-align: center;
-            margin-top: 8px;
-          }
-
-          &:hover {
-            transform: scale(1.1);
-          }
-        }
-      }
-    }
-  }
-
   @media (min-width: 850px) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    .cardWrapper {
+      margin: 0 16px;
+    }
+  }
+}
+
+.cardWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: var(--primary);
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .card {
+    width: min(100%, 300px);
+    height: 400px;
+    margin: 16px 0 30px;
+
+    background-color: var(--true-black);
+    border-radius: 10px;
+
+    padding: 10px 8px 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-evenly;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 0.2s;
+
+        h2 {
+          color: var(--primary);
+          text-align: center;
+          margin-top: 8px;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.languagesWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 16px;
+
+  min-width: 300px;
+  padding: 20px 30px;
+  background-color: var(--true-black);
+  border-radius: 10px;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    color: var(--primary);
+    position: relative;
+
+    strong {
+      margin: 0 4px;
+    }
+
+    img {
+      display: inline;
+      width: 20px;
+    }
+  }
+
+  @media (min-width: 850px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
 
     .cardWrapper {
       margin: 0 16px;
