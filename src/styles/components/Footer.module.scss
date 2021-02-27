@@ -4,8 +4,7 @@
   padding: 0 30px;
 
   .content {
-    flex: 1;
-    padding: 30px;
+    padding: 50px 30px;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -17,6 +16,13 @@
 
     span {
       text-align: center;
+    }
+  }
+
+  @media (min-width: 850px) {
+    .content {
+      grid-template-columns: repeat(3, 140px);
+      justify-content: center;
     }
   }
 }
