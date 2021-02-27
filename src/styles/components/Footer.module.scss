@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  margin-top: 100px;
+  padding: 0 30px;
+
+  .content {
+    flex: 1;
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+
+    border-top: 1px solid var(--primary);
+
+    span {
+      text-align: center;
+    }
+  }
+}

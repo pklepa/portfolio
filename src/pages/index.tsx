@@ -5,6 +5,7 @@ import styles from '../styles/pages/Home.module.scss';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import SkillsSection from '../components/SkillsSection';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
           <HeroSection />
           <AboutSection />
           <SkillsSection />
+
+          <Footer />
         </main>
       </div>
     </>
