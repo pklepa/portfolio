@@ -48,7 +48,7 @@ function AnimatedLogo(): ReactElement {
     fullName: async () => {
       await fullNameAnim.start({
         opacity: [0, 1],
-        transition: { duration: 0.8, delay: 2.8 },
+        transition: { duration: 0.8, delay: 2.6 },
       });
     },
 
