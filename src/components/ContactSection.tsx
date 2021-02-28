@@ -1,12 +1,15 @@
+// TODO: Add a 'click to copy' function on top of the email address
+// TODO: Add a tooltip to indicate the function above
+// TODO: Implement EmailJS API as a submit action for the contact form
+// TODO: Add Twitter to social medias
+
 import React, { ReactElement } from 'react';
 
 import styles from '../styles/components/ContactSection.module.scss';
 import Button from './Button';
 import SectionHeader from './SectionHeader';
 
-interface Props {}
-
-function ContactSection({}: Props): ReactElement {
+function ContactSection(): ReactElement {
   function textAreaAdjust({ target }) {
     target.style.height = '1px';
     target.style.height = 16 + target.scrollHeight + 'px';

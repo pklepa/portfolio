@@ -1,3 +1,5 @@
+// TODO: When the user clicks the SmallLogo, scroll back to the top
+
 import React, { ReactElement } from 'react';
 import styles from '../styles/components/Footer.module.scss';
 import SmallLogo from './SmallLogo';

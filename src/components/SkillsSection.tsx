@@ -1,12 +1,13 @@
+// TODO: One by one fade in for each skill in the skill card
+// TODO: Maybe refactor skill Card to be a grid rather than a flexbox (could facilitate the animation above)
+
 import React, { ReactElement } from 'react';
 
 import styles from '../styles/components/SkillsSection.module.scss';
 
 import SectionHeader from './SectionHeader';
 
-interface Props {}
-
-function SkillsSection({}: Props): ReactElement {
+function SkillsSection(): ReactElement {
   return (
     <section className={styles.container}>
       <SectionHeader title="Tools & Skills" align="left" />

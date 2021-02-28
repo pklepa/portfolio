@@ -1,3 +1,6 @@
+// TODO: styles.container should be responsible for handling the spaces between each section
+// TODO: Add fadeIn effects for the sections when the user scrolls into view
+
 import Head from 'next/head';
 
 import styles from '../styles/pages/Home.module.scss';
