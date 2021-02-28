@@ -67,15 +67,16 @@ function ContactSection({}: Props): ReactElement {
           <Button text="Send" type="submit" isPrimary></Button>
         </form>
 
-        <div className={styles.separator}>You can also</div>
-
         <div className={styles.linksContainer}>
+          <h2 className={`${styles.separator} ${styles.first}`}>
+            You can also
+          </h2>
           <div className={styles.emailWrapper}>
             <p>Write me an e-mail at:</p>
             <h1>pedro.klepa+contact@gmail.com</h1>
           </div>
 
-          <div className={styles.separator}>Or</div>
+          <h2 className={styles.separator}>Or</h2>
 
           <div className={styles.socialMediaContainer}>
             <p>Reach me through social media:</p>

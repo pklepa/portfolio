@@ -91,6 +91,36 @@
       box-shadow: none;
     }
   }
+
+  button {
+    max-width: 200px;
+    align-self: center;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 850px) {
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(2, minmax(350px, 500px));
+
+    .linksContainer {
+      margin-bottom: 30px;
+    }
+
+    .linksContainer .emailWrapper h1 {
+      font-size: 40px;
+    }
+
+    .separator.first {
+      margin-top: 0;
+    }
+  }
 }
 
 .separator {
