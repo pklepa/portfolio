@@ -14,6 +14,18 @@
       display: block;
       order: 1;
     }
+
+    &.alignCenter {
+      grid-template-columns: 1fr;
+
+      .headerContainer h1 {
+        margin: 0 40px;
+      }
+
+      .emptySpace {
+        display: none;
+      }
+    }
   }
 }
 
@@ -26,12 +38,12 @@
     color: var(--primary);
     font-family: 'Big Shoulders Stencil Display', cursive;
     font-size: 30px;
+    margin-right: 20px;
   }
 
   .line {
     flex: 1;
     height: 1px;
-    margin-left: 20px;
     background-color: var(--primary);
   }
 
@@ -41,5 +53,11 @@
 
   &.alignLeft {
     order: 1;
+  }
+
+  @media (max-width: 850px) {
+    .line:first-child {
+      display: none;
+    }
   }
 }

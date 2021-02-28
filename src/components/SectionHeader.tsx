@@ -25,6 +25,8 @@ function SectionHeader({ title, align }): ReactElement<Props> {
       className={`${styles.grid} ${align === 'center' && styles.alignCenter}`}
     >
       <div className={`${styles.headerContainer} ${styles[headerAlignment]}`}>
+        {align === 'center' && <div className={styles.line} />}
+
         <h1>{title}</h1>
 
         <div className={styles.line} />

@@ -9,7 +9,7 @@ interface Props {}
 function SkillsSection({}: Props): ReactElement {
   return (
     <section className={styles.container}>
-      <SectionHeader title="Tools & Skills" align="right" />
+      <SectionHeader title="Tools & Skills" align="left" />
 
       <div className={styles.cardsGrid}>
         <div className={styles.cardWrapper}>

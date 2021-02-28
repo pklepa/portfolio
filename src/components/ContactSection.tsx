@@ -14,7 +14,7 @@ function ContactSection({}: Props): ReactElement {
 
   return (
     <div className={styles.container}>
-      <SectionHeader title="Contact" align="left" />
+      <SectionHeader title="Contact" align="center" />
 
       <div className={styles.content}>
         <form className={styles.form}>
