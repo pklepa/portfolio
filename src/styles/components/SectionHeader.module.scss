@@ -34,4 +34,12 @@
     margin-left: 20px;
     background-color: var(--primary);
   }
+
+  &.alignRight {
+    order: 2;
+  }
+
+  &.alignLeft {
+    order: 1;
+  }
 }

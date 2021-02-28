@@ -9,7 +9,7 @@ import ScrollingText from './ScrollingText';
 function AboutSection(): ReactElement {
   return (
     <section className={styles.container}>
-      <SectionHeader title="About" alignRight />
+      <SectionHeader title="About" align="right" />
 
       <div className={styles.grid}>
         <div className={styles.imageWrapper}>
