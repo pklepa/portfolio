@@ -104,10 +104,13 @@
 
   @media (min-width: 850px) {
     display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 500px));
     gap: 20px;
+
     align-items: center;
     justify-content: space-evenly;
-    grid-template-columns: repeat(2, minmax(350px, 500px));
+
+    margin-top: 30px;
 
     .linksContainer {
       margin-bottom: 30px;
