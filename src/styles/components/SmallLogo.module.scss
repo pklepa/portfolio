@@ -4,8 +4,8 @@
   position: relative;
   z-index: 10;
 
-  height: 62px;
-  width: 62px;
+  height: 48px;
+  width: 48px;
 
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
 
     color: var(--primary);
     font-family: 'Big Shoulders Stencil Display', cursive;
-    font-size: 36px;
+    font-size: 32px;
   }
 
   .nameInitials {
