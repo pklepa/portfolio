@@ -6,11 +6,15 @@ import styles from '../styles/components/Button.module.scss';
 interface Props {
   text: string;
   isPrimary: boolean;
+  type: string;
 }
 
-function Button({ text, isPrimary }): ReactElement<Props> {
+function Button({ text, isPrimary, type }): ReactElement<Props> {
   return (
-    <button className={`${styles.btn} ${isPrimary ? styles.primary : ''}`}>
+    <button
+      type={type}
+      className={`${styles.btn} ${isPrimary ? styles.primary : ''}`}
+    >
       {text}
     </button>
   );

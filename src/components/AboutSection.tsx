@@ -43,7 +43,7 @@ function AboutSection(): ReactElement {
             />
           </div>
 
-          <Button text="Say Hello" isPrimary />
+          <Button type="button" text="Say Hello" isPrimary />
         </div>
       </div>
     </section>
