@@ -14,6 +14,7 @@ import ContactSection from '../components/ContactSection';
 
 export default function Home() {
   const [contactRef, setContactRef] = useState(null);
+  const [heroRef, setHeroRef] = useState(null);
 
   return (
     <>
@@ -24,13 +25,13 @@ export default function Home() {
 
       <div className={styles.container}>
         <main>
-          <HeroSection />
+          <HeroSection setHeroRef={setHeroRef} />
 
           <AboutSection contactRef={contactRef} />
           <SkillsSection />
           <ContactSection setContactRef={setContactRef} />
 
-          <Footer />
+          <Footer heroRef={heroRef} />
         </main>
       </div>
     </>

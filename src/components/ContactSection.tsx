@@ -1,6 +1,7 @@
 // TODO: Add a 'click to copy' function on top of the email address
 // TODO: Add a tooltip to indicate the function above
 // TODO: Add Twitter to social medias
+// TODO: Disable button after sending email
 
 import React, { ReactElement, useEffect, useRef } from 'react';
 import emailjs from 'emailjs-com';
@@ -24,6 +25,7 @@ function ContactSection({ setContactRef }: Props): ReactElement {
 
   function sendEmail(e) {
     e.preventDefault();
+    // Do something
 
     emailjs
       .sendForm(

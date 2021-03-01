@@ -1,12 +1,22 @@
 // TODO: Find a way to replicate the initial animation from Animated Logo when the user clicks or periodically
 
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useRef } from 'react';
 import styles from '../styles/components/HeroSection.module.scss';
 import AnimatedLogo from './AnimatedLogo';
 
-function HeroSection(): ReactElement {
+interface Props {
+  setHeroRef: (arg0: any) => void;
+}
+
+function HeroSection({ setHeroRef }: Props): ReactElement {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    setHeroRef(heroRef);
+  }, [heroRef]);
+
   return (
-    <div className={styles.container}>
+    <div ref={heroRef} className={styles.container}>
       <AnimatedLogo />
 
       <img
