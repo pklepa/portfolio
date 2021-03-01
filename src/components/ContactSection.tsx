@@ -4,8 +4,10 @@
 // TODO: Add Twitter to social medias
 
 import React, { ReactElement } from 'react';
+import emailjs from 'emailjs-com';
 
 import styles from '../styles/components/ContactSection.module.scss';
+
 import Button from './Button';
 import SectionHeader from './SectionHeader';
 
@@ -15,12 +17,40 @@ function ContactSection(): ReactElement {
     target.style.height = 16 + target.scrollHeight + 'px';
   }
 
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID,
+        'template_web6r4l',
+        e.target,
+        process.env.NEXT_PUBLIC_EMAIL_JS_USER_ID
+      )
+      .then(
+        (result) => {
+          alert(
+            'Thank you! Your message was sent and will be replied shortly.'
+          );
+          console.log(result.text);
+
+          e.target.reset();
+        },
+        (error) => {
+          alert(
+            'Unfortunately there was an unexpected error. Please try again later or write directly to the provided email on the site footer.'
+          );
+          console.log(error.text);
+        }
+      );
+  }
+
   return (
     <div className={styles.container}>
       <SectionHeader title="Contact" align="center" />
 
       <div className={styles.content}>
-        <form className={styles.form}>
+        <form onSubmit={sendEmail} className={styles.form}>
           <p className={styles.formIntro}>
             Leave a message and I'll get back to you in 1 or 2 working days.
           </p>
