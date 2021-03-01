@@ -11,6 +11,7 @@ import AboutSection from '../components/AboutSection';
 import SkillsSection from '../components/SkillsSection';
 import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';
+import ProjectsSection from '../components/ProjectsSection';
 
 export default function Home() {
   const [contactRef, setContactRef] = useState(null);
@@ -29,6 +30,7 @@ export default function Home() {
 
           <AboutSection contactRef={contactRef} />
           <SkillsSection />
+          <ProjectsSection />
           <ContactSection setContactRef={setContactRef} />
 
           <Footer heroRef={heroRef} />
