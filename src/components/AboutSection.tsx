@@ -1,5 +1,3 @@
-// TODO: Have the 'Say Hello' button scroll down to the ContactSection
-
 import React, { ReactElement } from 'react';
 import styles from '../styles/components/AboutSection.module.scss';
 

@@ -1,6 +1,5 @@
 // TODO: Add a 'click to copy' function on top of the email address
 // TODO: Add a tooltip to indicate the function above
-// TODO: Implement EmailJS API as a submit action for the contact form
 // TODO: Add Twitter to social medias
 
 import React, { ReactElement, useEffect, useRef } from 'react';
