@@ -8,7 +8,11 @@ import ProfilePic from './ProfilePic';
 import Button from './Button';
 import ScrollingText from './ScrollingText';
 
-function AboutSection(): ReactElement {
+interface Props {
+  contactRef: any;
+}
+
+function AboutSection({ contactRef }: Props): ReactElement {
   return (
     <section className={styles.container}>
       <SectionHeader title="About" align="right" />
@@ -45,7 +49,18 @@ function AboutSection(): ReactElement {
             />
           </div>
 
-          <Button type="button" text="Say Hello" isPrimary />
+          <Button
+            onClick={() => {
+              contactRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start',
+              });
+            }}
+            type="button"
+            text="Say Hello"
+            isPrimary
+          />
         </div>
       </div>
     </section>

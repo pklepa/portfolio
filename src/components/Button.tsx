@@ -1,4 +1,3 @@
-import { symlink } from 'fs';
 import React, { ReactElement } from 'react';
 
 import styles from '../styles/components/Button.module.scss';
@@ -6,12 +5,14 @@ import styles from '../styles/components/Button.module.scss';
 interface Props {
   text: string;
   isPrimary: boolean;
-  type: string;
+  type: 'button' | 'submit';
+  onClick?: () => void;
 }
 
-function Button({ text, isPrimary, type }): ReactElement<Props> {
+function Button({ onClick, text, isPrimary, type }: Props): ReactElement {
   return (
     <button
+      onClick={onClick && onClick}
       type={type}
       className={`${styles.btn} ${isPrimary ? styles.primary : ''}`}
     >

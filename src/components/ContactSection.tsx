@@ -3,7 +3,7 @@
 // TODO: Implement EmailJS API as a submit action for the contact form
 // TODO: Add Twitter to social medias
 
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useRef } from 'react';
 import emailjs from 'emailjs-com';
 
 import styles from '../styles/components/ContactSection.module.scss';
@@ -11,7 +11,13 @@ import styles from '../styles/components/ContactSection.module.scss';
 import Button from './Button';
 import SectionHeader from './SectionHeader';
 
-function ContactSection(): ReactElement {
+interface Props {
+  setContactRef: (arg0: any) => void;
+}
+
+function ContactSection({ setContactRef }: Props): ReactElement {
+  const contactRef = useRef(null);
+
   function textAreaAdjust({ target }) {
     target.style.height = '1px';
     target.style.height = 16 + target.scrollHeight + 'px';
@@ -45,8 +51,12 @@ function ContactSection(): ReactElement {
       );
   }
 
+  useEffect(() => {
+    setContactRef(contactRef);
+  }, [contactRef]);
+
   return (
-    <div className={styles.container}>
+    <div ref={contactRef} className={styles.container}>
       <SectionHeader title="Contact" align="center" />
 
       <div className={styles.content}>
