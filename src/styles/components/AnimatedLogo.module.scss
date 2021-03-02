@@ -23,9 +23,16 @@
   .nameInitials {
     span {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 16px;
       text-align: center;
+
+      &:first-child {
+        left: 24px;
+      }
+
+      &:last-child {
+        left: 50%;
+      }
     }
   }
 
@@ -36,6 +43,7 @@
     width: 200px;
     text-align: center;
     transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
   }
 
   .solidBackground {

@@ -4,6 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import styles from '../styles/components/AnimatedLogo.module.scss';
 
 function AnimatedLogo(): ReactElement {
+  const wrapperAnim = useAnimation();
   const solidBackgroundAnim = useAnimation();
   const gradientBackgroundAnim = useAnimation();
   const initialsAnims = {
@@ -22,11 +23,6 @@ function AnimatedLogo(): ReactElement {
         borderRadius: ['10%', '50%', '50%', '8px'],
         transition: { duration: 2 },
       });
-
-      await solidBackgroundAnim.start({
-        width: '200px',
-        transition: { duration: 0.6 },
-      });
     },
 
     gradientBackground: async () => {
@@ -38,28 +34,20 @@ function AnimatedLogo(): ReactElement {
         borderRadius: ['10%', '50%', '50%', '8px'],
         transition: { duration: 2 },
       });
-
-      await gradientBackgroundAnim.start({
-        width: '208px',
-        transition: { duration: 0.6 },
-      });
     },
 
     fullName: async () => {
       await fullNameAnim.start({
         opacity: [0, 1],
-        transition: { duration: 0.8, delay: 2.6 },
+        transition: { duration: 0.8, delay: 0.5 },
       });
     },
 
     initialsP: async () => {
       await initialsAnims.p.start({
-        transform: [
-          'translateX(-18px) translateY(-26px)',
-          'translateX(-18px) translateY(-26px)',
-          'translateX(-86px) translateY(-26px)',
-        ],
-        transition: { duration: 2.6, times: [0, 0.769, 1] },
+        transform: 'translateX(-10px)',
+
+        transition: { duration: 1 },
       });
 
       await initialsAnims.p.start({
@@ -70,12 +58,8 @@ function AnimatedLogo(): ReactElement {
 
     initialsK: async () => {
       await initialsAnims.k.start({
-        transform: [
-          'translateX(1px) translateY(-26px)',
-          'translateX(1px) translateY(-26px)',
-          'translateX(8px) translateY(-26px)',
-        ],
-        transition: { duration: 2.6, times: [0, 0.769, 1] },
+        transform: 'translateX(8px)',
+        transition: { duration: 1 },
       });
 
       await initialsAnims.k.start({
@@ -83,22 +67,37 @@ function AnimatedLogo(): ReactElement {
         transition: { duration: 1, delay: 0.5 },
       });
     },
+
+    wrapper: async () => {
+      await wrapperAnim.start({
+        width: '200px',
+        transition: { duration: 0.6 },
+      });
+    },
+
+    background: async () => {
+      controls.gradientBackground();
+      controls.solidBackground();
+    },
+
+    start: async () => {
+      controls.gradientBackground();
+      controls.solidBackground().then(() => {
+        controls.initialsP();
+        controls.initialsK();
+        controls.wrapper().then(() => {
+          controls.fullName();
+        });
+      });
+    },
   };
 
   useEffect(() => {
-    controls.solidBackground();
-    controls.gradientBackground();
-    controls.fullName();
-    controls.initialsP();
-    controls.initialsK();
+    controls.start();
   }, []);
 
   return (
-    <motion.div
-      animate={{ width: '200px' }}
-      transition={{ duration: 0.6, delay: 2 }}
-      className={styles.logoContainer}
-    >
+    <motion.div animate={wrapperAnim} className={styles.logoContainer}>
       <h1 className={styles.nameInitials}>
         <motion.span animate={initialsAnims.p}>p</motion.span>
         <motion.span animate={initialsAnims.k}>k</motion.span>
