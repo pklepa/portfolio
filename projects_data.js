@@ -3,7 +3,7 @@ export const projects = [
     photoUrl:
       'https://user-images.githubusercontent.com/22618438/109691375-48f4d500-7b7f-11eb-93d4-a0d7d19a8676.png',
     photos: [
-      'https://user-images.githubusercontent.com/22618438/109691375-48f4d500-7b7f-11eb-93d4-a0d7d19a8676.png',
+      'https://user-images.githubusercontent.com/22618438/109699118-11d6f180-7b88-11eb-9b6b-ff565001e1e2.png',
       'https://user-images.githubusercontent.com/22618438/109692083-01227d80-7b80-11eb-8209-cd0216d7e3f5.png',
     ],
     title: 'CatWiki',

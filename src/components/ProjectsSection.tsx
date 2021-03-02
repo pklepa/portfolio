@@ -19,17 +19,19 @@ function ProjectsSection({}: Props): ReactElement {
 
           return (
             <div key={project.title} className={styles.projectWrapper}>
-              {project.photos.map((photo, i) => {
-                return (
-                  <img
-                    key={`${project.title}-img-${i}`}
-                    className={i > 0 ? styles.desktopOnly : ''}
-                    src={photo}
-                    alt="Preview pic"
-                    style={{ width: '100%' }}
-                  />
-                );
-              })}
+              <div className={styles.imagesWrapper}>
+                {project.photos.map((photo, i) => {
+                  return (
+                    <img
+                      key={`${project.title}-img-${i}`}
+                      className={i > 0 ? styles.desktopOnly : ''}
+                      src={photo}
+                      alt="Preview pic"
+                      style={{ width: '100%' }}
+                    />
+                  );
+                })}
+              </div>
 
               <div className={styles.projectDetails}>
                 <h1>{project.title}</h1>
