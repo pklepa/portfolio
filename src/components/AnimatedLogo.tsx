@@ -17,7 +17,7 @@ function AnimatedLogo(): ReactElement {
     solidBackground: async () => {
       await solidBackgroundAnim.start({
         opacity: [1, 1, 1, 1],
-        scale: [0.1, 0.9, 0.9, 1],
+        scale: [0, 0.9, 0.9, 1],
 
         rotate: [0, 45, 270, 270, 0],
         borderRadius: ['10%', '50%', '50%', '8px'],
@@ -28,7 +28,7 @@ function AnimatedLogo(): ReactElement {
     gradientBackground: async () => {
       await gradientBackgroundAnim.start({
         opacity: [0.2, 1, 1, 1],
-        scale: [1.5, 1, 1, 1],
+        scale: [1, 1.5, 1, 1, 1],
 
         rotate: [0, 10, 270, 270, 0],
         borderRadius: ['10%', '50%', '50%', '8px'],
@@ -90,6 +90,36 @@ function AnimatedLogo(): ReactElement {
         });
       });
     },
+
+    reset: async () => {
+      wrapperAnim.start({
+        width: '86px',
+        transition: { duration: 1 },
+      });
+
+      fullNameAnim.start({
+        opacity: 0,
+        transition: { duration: 0.5 },
+      });
+
+      initialsAnims.k.start({
+        opacity: 1,
+        transition: { duration: 0.2 },
+      });
+      initialsAnims.k.start({
+        transform: 'translateX(0px)',
+        transition: { duration: 1.2 },
+      });
+
+      initialsAnims.p.start({
+        opacity: 1,
+        transition: { duration: 0.2 },
+      });
+      initialsAnims.p.start({
+        transform: 'translateX(0px)',
+        transition: { duration: 1.2 },
+      });
+    },
   };
 
   useEffect(() => {
@@ -97,7 +127,12 @@ function AnimatedLogo(): ReactElement {
   }, []);
 
   return (
-    <motion.div animate={wrapperAnim} className={styles.logoContainer}>
+    <motion.div
+      onHoverStart={controls.reset}
+      onHoverEnd={controls.start}
+      animate={wrapperAnim}
+      className={styles.logoContainer}
+    >
       <h1 className={styles.nameInitials}>
         <motion.span animate={initialsAnims.p}>p</motion.span>
         <motion.span animate={initialsAnims.k}>k</motion.span>
