@@ -1,9 +1,12 @@
-import { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 import styles from '../styles/components/AnimatedLogo.module.scss';
 
 function AnimatedLogo(): ReactElement {
+  const [isAnimationRunning, setIsAnimationRunning] = useState(false);
+  const [currentLogoState, setCurrentLogoState] = useState('expanded');
+
   const wrapperAnim = useAnimation();
   const solidBackgroundAnim = useAnimation();
   const gradientBackgroundAnim = useAnimation();
@@ -75,19 +78,19 @@ function AnimatedLogo(): ReactElement {
       });
     },
 
-    background: async () => {
-      controls.gradientBackground();
-      controls.solidBackground();
-    },
-
     start: async () => {
       controls.gradientBackground();
       controls.solidBackground().then(() => {
         controls.initialsP();
         controls.initialsK();
-        controls.wrapper().then(() => {
-          controls.fullName();
-        });
+        controls
+          .wrapper()
+          .then(() => {
+            controls.fullName();
+          })
+          .then(() => {
+            setIsAnimationRunning(false);
+          });
       });
     },
 
@@ -115,21 +118,43 @@ function AnimatedLogo(): ReactElement {
         opacity: 1,
         transition: { duration: 0.2 },
       });
-      initialsAnims.p.start({
-        transform: 'translateX(0px)',
-        transition: { duration: 1.2 },
-      });
+      initialsAnims.p
+        .start({
+          transform: 'translateX(0px)',
+          transition: { duration: 1.2 },
+        })
+        .then(() => {
+          setIsAnimationRunning(false);
+        });
     },
   };
 
   useEffect(() => {
     controls.start();
+    setIsAnimationRunning(true);
   }, []);
 
   return (
     <motion.div
-      onHoverStart={controls.reset}
-      onHoverEnd={controls.start}
+      onClick={() => {
+        switch (currentLogoState) {
+          case 'expanded':
+            if (isAnimationRunning) return;
+
+            controls.reset();
+            setIsAnimationRunning(true);
+            return setCurrentLogoState('retracted');
+          case 'retracted':
+            if (isAnimationRunning) return;
+
+            controls.start();
+            setIsAnimationRunning(true);
+            return setCurrentLogoState('expanded');
+
+          default:
+            break;
+        }
+      }}
       animate={wrapperAnim}
       className={styles.logoContainer}
     >
