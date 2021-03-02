@@ -1,7 +1,11 @@
 export const projects = [
   {
     photoUrl:
-      'https://user-images.githubusercontent.com/22618438/107892064-9126bd00-6f1a-11eb-9f48-f8f564756383.png',
+      'https://user-images.githubusercontent.com/22618438/109691375-48f4d500-7b7f-11eb-93d4-a0d7d19a8676.png',
+    photos: [
+      'https://user-images.githubusercontent.com/22618438/109691375-48f4d500-7b7f-11eb-93d4-a0d7d19a8676.png',
+      'https://user-images.githubusercontent.com/22618438/109692083-01227d80-7b80-11eb-8209-cd0216d7e3f5.png',
+    ],
     title: 'CatWiki',
     tools: ['react', 'styled-components', 'framer-motion', 'next-js'],
     description:
@@ -12,6 +16,10 @@ export const projects = [
   {
     photoUrl:
       'https://user-images.githubusercontent.com/22618438/105358697-6b91e680-5bee-11eb-914d-e89d3e681700.png',
+    photos: [
+      'https://user-images.githubusercontent.com/22618438/109692807-dbe23f00-7b80-11eb-8590-735cf9ee6457.png',
+      'https://user-images.githubusercontent.com/22618438/109693309-6aef5700-7b81-11eb-8cfd-a4e5dfee3539.png',
+    ],
     title: 'Traffico',
     tools: ['react', 'styled-components', 'framer-motion'],
     description:
@@ -22,6 +30,10 @@ export const projects = [
   {
     photoUrl:
       'https://user-images.githubusercontent.com/22618438/104212638-574f2c00-542d-11eb-8edb-58bb4c0bb772.png',
+    photos: [
+      'https://user-images.githubusercontent.com/22618438/109697086-b60b6900-7b85-11eb-87f2-646a1d20d209.png',
+      'https://user-images.githubusercontent.com/22618438/109693945-24e6c300-7b82-11eb-8623-a01e6d5c6828.png',
+    ],
     title: 'Pencil Blog',
     tools: [
       'node-js',

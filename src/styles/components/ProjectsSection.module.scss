@@ -12,11 +12,17 @@
   align-items: center;
   flex-direction: column;
 
+  margin-bottom: 50px;
+
   img {
     width: 100%;
     max-width: 350px;
     margin-top: 30px;
     border-radius: 10px;
+
+    &.desktopOnly {
+      display: none;
+    }
   }
 
   .projectDetails {
@@ -27,7 +33,7 @@
     h1 {
       color: var(--primary);
       font-family: 'Big Shoulders Stencil Display', cursive;
-      font-size: 24px;
+      font-size: 32px;
       font-weight: 400;
       text-align: center;
       margin-top: 30px;
@@ -37,6 +43,16 @@
       margin-top: 20px;
       line-height: 1.5em;
       text-indent: 30px;
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  @media (min-width: 850px) {
+    img.desktopOnly {
+      display: block;
     }
   }
 }

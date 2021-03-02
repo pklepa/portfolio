@@ -14,28 +14,40 @@ function ProjectsSection({}: Props): ReactElement {
       <SectionHeader title="Featured Projects" align="left" />
 
       <div className={styles.projectsContainer}>
-        <div className={styles.projectWrapper}>
-          <img
-            src={projects[0]?.photoUrl}
-            alt="Preview pic"
-            style={{ width: '100%' }}
-          />
+        {projects.map((project, index) => {
+          if (index > 2) return;
 
-          <div className={styles.projectDetails}>
-            <h1>{projects[0]?.title}</h1>
-            <p>{projects[0]?.description}</p>
+          return (
+            <div key={project.title} className={styles.projectWrapper}>
+              {project.photos.map((photo, i) => {
+                return (
+                  <img
+                    key={`${project.title}-img-${i}`}
+                    className={i > 0 ? styles.desktopOnly : ''}
+                    src={photo}
+                    alt="Preview pic"
+                    style={{ width: '100%' }}
+                  />
+                );
+              })}
 
-            <div className={styles.buttonsWrapper}>
-              <Button
-                type="button"
-                text="Review the code"
-                isPrimary={false}
-              ></Button>
+              <div className={styles.projectDetails}>
+                <h1>{project.title}</h1>
+                <p>{project.description}</p>
 
-              <Button type="button" text="See it live" isPrimary></Button>
+                <div className={styles.buttonsWrapper}>
+                  <Button
+                    type="button"
+                    text="Review the code"
+                    isPrimary={false}
+                  ></Button>
+
+                  <Button type="button" text="See it live" isPrimary></Button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );
