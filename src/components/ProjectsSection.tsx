@@ -1,3 +1,9 @@
+// TODO: Add a LOAD MORE button after 3 loaded projects
+// TODO: Optimize images using 'next/image'
+// TODO: Transform images grid into a rolling caroussel and include desktop images as well
+// TODO: Maybe clicking the images should open a full screen caroussel
+// TODO: At the end of all projects, put a "And a lot more on my Github" or "Like what you see? Get in touch!"
+
 import React, { ReactElement } from 'react';
 
 import { projects } from '../../projects_data.js';
