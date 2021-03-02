@@ -6,7 +6,7 @@ interface Props {
   align: 'left' | 'right' | 'center';
 }
 
-function SectionHeader({ title, align }): ReactElement<Props> {
+function SectionHeader({ title, align }: Props): ReactElement {
   let headerAlignment;
   switch (align) {
     case 'right':

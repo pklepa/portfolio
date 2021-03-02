@@ -1,0 +1,127 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 30px 30px;
+  width: 100%;
+
+  .projectsContainer {
+    margin-top: 30px;
+  }
+
+  @media (min-width: 850px) {
+    .projectsContainer > :nth-child(2) {
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: 'details images';
+
+      .imagesWrapper {
+        justify-content: center;
+        grid-template-areas: 'main extra';
+      }
+
+      .projectDetails {
+        margin: 0 30px 0 0;
+      }
+    }
+  }
+}
+
+.projectWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  margin-bottom: 50px;
+
+  .imagesWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  img {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 30px;
+    border-radius: 10px;
+
+    &.desktopOnly {
+      display: none;
+    }
+  }
+
+  .projectDetails {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      color: var(--primary);
+      font-family: 'Big Shoulders Stencil Display', cursive;
+      font-size: 32px;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    p {
+      margin-top: 20px;
+      line-height: 1.5em;
+      text-indent: 30px;
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  @media (min-width: 850px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 'images details';
+    margin-bottom: 80px;
+
+    .imagesWrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'extra main';
+      justify-content: center;
+
+      grid-area: images;
+
+      img {
+        justify-self: center;
+
+        &:first-child {
+          grid-area: main;
+        }
+
+        &:last-child {
+          grid-area: extra;
+        }
+      }
+    }
+
+    .projectDetails {
+      grid-area: details;
+      margin: 0 0 0 30px;
+    }
+
+    img.desktopOnly {
+      display: block;
+    }
+  }
+}
+
+.buttonsWrapper {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, minmax(130px, 200px));
+  gap: 30px;
+
+  margin-top: 40px;
+
+  button {
+    max-width: 200px;
+  }
+}
