@@ -1,0 +1,18 @@
+export const iconMap = {
+  'contentful-cms': 'icon_contentful.svg',
+  express: 'icon_express.svg',
+  'facebook-api': 'icon_facebook.svg',
+  firebase: 'icon_firebase.svg',
+  'framer-motion': 'icon_framer.svg',
+  jest: 'icon_jest.svg',
+  mongodb: 'icon_mongodb.svg',
+  'next-js': 'icon_next.svg',
+  'node-js': 'icon_nodejs.svg',
+  npm: 'icon_npm.svg',
+  react: 'icon_react.svg',
+  sass: 'icon_sass.svg',
+  'styled-components': 'icon_styledComponents.svg',
+  typescript: 'icon_typescript.svg',
+  'vanilla-js': 'icon_javascript.svg',
+  webpack: 'icon_webpack.svg',
+};

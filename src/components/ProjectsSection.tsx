@@ -6,11 +6,13 @@
 
 import React, { ReactElement } from 'react';
 
-import { projects } from '../../projects_data.js';
 import styles from '../styles/components/ProjectsSection.module.scss';
-import Button from './Button';
+
+import { projects } from '../../projects_data.js';
 
 import SectionHeader from './SectionHeader';
+import Button from './Button';
+import SkillTag from './SkillTag';
 
 interface Props {}
 
@@ -41,6 +43,12 @@ function ProjectsSection({}: Props): ReactElement {
 
               <div className={styles.projectDetails}>
                 <h1>{project.title}</h1>
+
+                <div className={styles.skillsContainer}>
+                  {project.tools.map((tool) => {
+                    return <SkillTag key={tool} skillName={tool} />;
+                  })}
+                </div>
                 <p>{project.description}</p>
 
                 <div className={styles.buttonsWrapper}>

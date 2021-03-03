@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  background-color: #444;
+  border-radius: 8px;
+  color: var(--primary);
+  font-family: monospace;
+  align-items: center;
+  padding: 3px 6px;
+  margin-right: 6px;
+  margin-top: 10px;
+
+  span {
+    color: var(--primary);
+    font-size: 12px;
+    margin-left: 6px;
+  }
+
+  img {
+    width: 16px;
+    height: 16px;
+    margin: 0 !important;
+  }
+}
