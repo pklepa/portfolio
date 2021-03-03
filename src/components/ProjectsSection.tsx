@@ -17,6 +17,13 @@ import SkillTag from './SkillTag';
 interface Props {}
 
 function ProjectsSection({}: Props): ReactElement {
+  function openLinkInNewTab(link) {
+    window.open(
+      link,
+      '_blank' // <- This is what makes it open in a new window.
+    );
+  }
+
   return (
     <div className={styles.container}>
       <SectionHeader title="Featured Projects" align="left" />
@@ -53,12 +60,22 @@ function ProjectsSection({}: Props): ReactElement {
 
                 <div className={styles.buttonsWrapper}>
                   <Button
+                    onClick={() => {
+                      openLinkInNewTab(project.githubUrl);
+                    }}
                     type="button"
                     text="Review the code"
                     isPrimary={false}
                   ></Button>
 
-                  <Button type="button" text="See it live" isPrimary></Button>
+                  <Button
+                    onClick={() => {
+                      openLinkInNewTab(project.liveDemoUrl);
+                    }}
+                    type="button"
+                    text="See it live"
+                    isPrimary
+                  ></Button>
                 </div>
               </div>
             </div>
