@@ -3,7 +3,7 @@
 // TODO: Add Twitter to social medias
 // TODO: Disable button after sending email
 
-import React, { ReactElement, useEffect, useRef } from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 
 import styles from '../styles/components/ContactSection.module.scss';
@@ -17,6 +17,7 @@ interface Props {
 
 function ContactSection({ setContactRef }: Props): ReactElement {
   const contactRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function textAreaAdjust({ target }) {
     target.style.height = '1px';
@@ -25,7 +26,7 @@ function ContactSection({ setContactRef }: Props): ReactElement {
 
   function sendEmail(e) {
     e.preventDefault();
-    // Do something
+    setIsSubmitting(true);
 
     emailjs
       .sendForm(
@@ -35,19 +36,18 @@ function ContactSection({ setContactRef }: Props): ReactElement {
         process.env.NEXT_PUBLIC_EMAIL_JS_USER_ID
       )
       .then(
-        (result) => {
+        () => {
           alert(
             'Thank you! Your message was sent and will be replied shortly.'
           );
-          console.log(result.text);
-
+          setIsSubmitting(false);
           e.target.reset();
         },
         (error) => {
           alert(
             'Unfortunately there was an unexpected error. Please try again later or write directly to the provided email on the site footer.'
           );
-          console.log(error.text);
+          setIsSubmitting(false);
         }
       );
   }
@@ -61,18 +61,19 @@ function ContactSection({ setContactRef }: Props): ReactElement {
       <SectionHeader title="Contact" align="center" />
 
       <div className={styles.content}>
-        <form onSubmit={sendEmail} className={styles.form}>
+        <form onSubmit={sendEmail} className={styles.form} autoComplete="on">
           <p className={styles.formIntro}>
-            Leave a message and I'll get back to you in 1 or 2 working days.
+            Leave a message and I'll get back to you as soon as I can.
           </p>
 
           <div className={styles.inputWrapper}>
             <input
-              type="input"
+              type="text"
               className={styles.form__field}
               placeholder="Name"
               name="name"
               id="name"
+              autoComplete="name"
               required
             />
             <label htmlFor="name" className={styles.form__label}>
@@ -82,11 +83,12 @@ function ContactSection({ setContactRef }: Props): ReactElement {
 
           <div className={styles.inputWrapper}>
             <input
-              type="input"
+              type="email"
               className={styles.form__field}
               placeholder="E-mail"
               name="email"
               id="email"
+              autoComplete="email"
               required
             />
             <label htmlFor="email" className={styles.form__label}>
@@ -108,7 +110,12 @@ function ContactSection({ setContactRef }: Props): ReactElement {
             </label>
           </div>
 
-          <Button text="Send" type="submit" isPrimary></Button>
+          <Button
+            text="Send"
+            type="submit"
+            isPrimary
+            disabled={isSubmitting}
+          ></Button>
         </form>
 
         <div className={styles.linksContainer}>

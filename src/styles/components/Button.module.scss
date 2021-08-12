@@ -47,4 +47,9 @@
       transform: translateY(calc(-100% + 3px));
     }
   }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 }

@@ -20,7 +20,7 @@ function ProjectsSection({}: Props): ReactElement {
   function openLinkInNewTab(link) {
     window.open(
       link,
-      '_blank' // <- This is what makes it open in a new window.
+      '_blank'
     );
   }
 
