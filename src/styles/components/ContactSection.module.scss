@@ -103,14 +103,16 @@
   flex-direction: column;
 
   @media (min-width: 850px) {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(350px, 500px));
+    // display: grid;
+    // grid-template-columns: repeat(2, minmax(350px, 500px));
+    align-items: center;
+    justify-content: center;
     gap: 20px;
 
     align-items: center;
     justify-content: space-evenly;
 
-    margin-top: 30px;
+    margin-top: 64px;
 
     .linksContainer {
       margin-bottom: 30px;

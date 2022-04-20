@@ -61,7 +61,7 @@ function ContactSection({ setContactRef }: Props): ReactElement {
       <SectionHeader title="Contact" align="center" />
 
       <div className={styles.content}>
-        <form onSubmit={sendEmail} className={styles.form} autoComplete="on">
+        {/* <form onSubmit={sendEmail} className={styles.form} autoComplete="on">
           <p className={styles.formIntro}>
             Leave a message and I'll get back to you as soon as I can.
           </p>
@@ -116,12 +116,12 @@ function ContactSection({ setContactRef }: Props): ReactElement {
             isPrimary
             disabled={isSubmitting}
           ></Button>
-        </form>
+        </form> */}
 
         <div className={styles.linksContainer}>
-          <h2 className={`${styles.separator} ${styles.first}`}>
+          {/* <h2 className={`${styles.separator} ${styles.first}`}>
             You can also
-          </h2>
+          </h2> */}
           <div className={styles.emailWrapper}>
             <p>Write me an e-mail at:</p>
             <h1>pedro.klepa+contact@gmail.com</h1>
