@@ -5,3 +5,11 @@
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
+
+.noise-bg {
+  background-image: url("/noise.svg");
+  background-size: 300%;
+  background-position: center;
+  background-repeat: repeat;
+  mix-blend-mode: color-burn;
+}
