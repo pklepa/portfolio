@@ -1,16 +1,24 @@
-import useMousePosition from "#/hooks/useMousePosition";
+import { motion } from "motion/react";
+import { useRef } from "react";
+import useFollowPointer from "#/hooks/useFollowPointer";
 
 function BackgroundBlob() {
-	const { x, y } = useMousePosition();
+	const ref = useRef<HTMLDivElement>(null);
+	const { x, y } = useFollowPointer(ref);
 
 	return (
-		<div
+		<motion.div
+			ref={ref}
 			style={{
-				left: x ?? "50%",
-				top: y ?? "50%",
+				x: x,
+				y: y,
 			}}
+			// animate={{
+			// 	left: x,
+			// 	top: y,
+			// }}
 			aria-hidden="true"
-			className="absolute opacity-40 -translate-y-1/2 -translate-x-1/2 -z-1 blur-3xl mix-blend-multiply w-3xl bg-radial from-60% from-primary-dark to-primary aspect-square rounded-full pointer-events-none"
+			className="absolute opacity-30 -z-1 blur-3xl mix-blend-multiply w-3xl bg-radial from-60% from-primary-dark to-primary aspect-square rounded-full pointer-events-none"
 		/>
 	);
 }
