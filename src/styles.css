@@ -4,6 +4,9 @@
 
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #2b3242;
+  --color-primary-dark: #2c3342;
 }
 
 .noise-bg {

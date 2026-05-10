@@ -1,7 +1,7 @@
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-
+import SiteBackground from "../layouts/site-background/SiteBackground";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -35,8 +35,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 
-			<body className="font-sans antialiased min-h-screen relative bg-neutral-800 text-gray-50 wrap-anywhere selection:bg-[rgba(79,184,178,0.24)]">
-				<div className="absolute inset-0 -z-1 noise-bg opacity-30 pointer-events-none" />
+			<body className="font-sans antialiased min-h-screen flex flex-col relative bg-primary text-gray-50 wrap-anywhere selection:bg-[rgba(79,184,178,0.24)]">
+				<SiteBackground />
 
 				{children}
 
