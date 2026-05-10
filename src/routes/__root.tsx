@@ -35,7 +35,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 
-			<body className="font-sans antialiased min-h-screen flex flex-col relative bg-primary text-gray-50 wrap-anywhere selection:bg-[rgba(79,184,178,0.24)]">
+			<body className="font-sans antialiased min-h-screen flex flex-col relative text-gray-50 wrap-anywhere selection:bg-[rgba(79,184,178,0.24)]">
 				<SiteBackground />
 
 				{children}
