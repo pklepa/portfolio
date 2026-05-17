@@ -1,8 +1,7 @@
 import { useSpring, useTransform } from "motion/react";
 import type { RefObject } from "react";
+import { SPRING_SMOOTH } from "#/constants/animations";
 import usePointerPosition from "./usePointerPosition";
-
-const spring = { damping: 10, stiffness: 50, restDelta: 0.011 };
 
 function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
 	const { x: mouseX, y: mouseY } = usePointerPosition();
@@ -20,8 +19,8 @@ function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
 			(ref.current?.offsetHeight ?? 0) / 2,
 	);
 
-	const x = useSpring(normalizedX, spring);
-	const y = useSpring(normalizedY, spring);
+	const x = useSpring(normalizedX, SPRING_SMOOTH);
+	const y = useSpring(normalizedY, SPRING_SMOOTH);
 
 	return { x, y };
 }

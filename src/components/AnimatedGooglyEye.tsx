@@ -1,4 +1,5 @@
-import { motion, useTransform } from "motion/react";
+import { motion, useSpring, useTransform } from "motion/react";
+import { SPRING_BOUNCY } from "#/constants/animations";
 import useMeasure from "#/hooks/useMeasure";
 import usePointerPosition from "#/hooks/usePointerPosition";
 import useWindowSize from "#/hooks/useWindowSize";
@@ -12,16 +13,19 @@ function AnimatedGooglyEye() {
 	const { width: screenWidth, height: screenHeight } = useWindowSize();
 	const { x: mouseX, y: mouseY } = usePointerPosition();
 
-	const x = useTransform(
+	const normalisedX = useTransform(
 		mouseX,
 		[0, screenWidth],
 		[-(eyeWidth - pupilWidth) / 2, (eyeWidth - pupilWidth) / 2],
 	);
-	const y = useTransform(
+	const normalisedY = useTransform(
 		mouseY,
 		[0, screenHeight],
 		[-(eyeHeight - pupilHeight) / 2, (eyeHeight - pupilHeight) / 2],
 	);
+
+	const x = useSpring(normalisedX, SPRING_BOUNCY);
+	const y = useSpring(normalisedY, SPRING_BOUNCY);
 
 	return (
 		<motion.div
