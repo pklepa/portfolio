@@ -2,21 +2,26 @@ import { useEffect, useRef, useState } from "react";
 
 function useMeasure<T extends HTMLElement>() {
 	const ref = useRef<T>(null);
-	const [size, setSize] = useState({ width: 0, height: 0 });
+	const [rect, setRect] = useState({ x: 0, y: 0, width: 0, height: 0 });
 
 	useEffect(() => {
-		if (!ref.current) return;
+		const element = ref.current;
+		if (!element) return;
 
-		const observer = new ResizeObserver(([entry]) => {
-			const { width, height } = entry.contentRect;
-			setSize({ width, height });
-		});
+		const update = () => {
+			const r = element.getBoundingClientRect();
+			setRect({ x: r.x, y: r.y, width: r.width, height: r.height });
+		};
 
-		observer.observe(ref.current);
+		update();
+
+		const observer = new ResizeObserver(update);
+		observer.observe(element);
+
 		return () => observer.disconnect();
 	}, []);
 
-	return [ref, size] as const;
+	return [ref, rect] as const;
 }
 
 export default useMeasure;
