@@ -2,30 +2,36 @@ import { motion, useSpring, useTransform } from "motion/react";
 import { SPRING_BOUNCY } from "#/constants/animations";
 import useMeasure from "#/hooks/useMeasure";
 import usePointerPosition from "#/hooks/usePointerPosition";
-import useWindowSize from "#/hooks/useWindowSize";
 
 function AnimatedGooglyEye() {
-	const [eyeRef, { width: eyeWidth, height: eyeHeight }] =
-		useMeasure<HTMLDivElement>();
-	const [pupilRef, { width: pupilWidth, height: pupilHeight }] =
-		useMeasure<HTMLDivElement>();
+	const [eyeRef, eyeRect] = useMeasure<HTMLDivElement>();
+	const [pupilRef, pupilRect] = useMeasure<HTMLDivElement>();
 
-	const { width: screenWidth, height: screenHeight } = useWindowSize();
-	const { x: mouseX, y: mouseY } = usePointerPosition();
+	const mousePosition = usePointerPosition();
 
-	const normalisedX = useTransform(
-		mouseX,
-		[0, screenWidth],
-		[-(eyeWidth - pupilWidth) / 2, (eyeWidth - pupilWidth) / 2],
-	);
-	const normalisedY = useTransform(
-		mouseY,
-		[0, screenHeight],
-		[-(eyeHeight - pupilHeight) / 2, (eyeHeight - pupilHeight) / 2],
-	);
+	const calculateAngle = () => {
+		const cx = eyeRect.x + eyeRect.width / 2;
+		const cy = eyeRect.y + eyeRect.height / 2;
+		const dx = mousePosition.x.get() - cx;
+		const dy = mousePosition.y.get() - cy;
+		return Math.atan2(dy, dx);
+	};
 
-	const x = useSpring(normalisedX, SPRING_BOUNCY);
-	const y = useSpring(normalisedY, SPRING_BOUNCY);
+	const targetX = useTransform(() => {
+		const angle = calculateAngle();
+		const dMax = (eyeRect.width - pupilRect.width) / 2;
+
+		return Math.cos(angle) * dMax;
+	});
+	const targetY = useTransform(() => {
+		const angle = calculateAngle();
+		const dMax = (eyeRect.height - pupilRect.height) / 2;
+
+		return Math.sin(angle) * dMax;
+	});
+
+	const x = useSpring(targetX, SPRING_BOUNCY);
+	const y = useSpring(targetY, SPRING_BOUNCY);
 
 	return (
 		<motion.div
