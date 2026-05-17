@@ -1,31 +1,27 @@
-import { frame, useSpring } from "motion/react";
-import { type RefObject, useEffect } from "react";
+import { useSpring, useTransform } from "motion/react";
+import type { RefObject } from "react";
+import usePointerPosition from "./usePointerPosition";
 
 const spring = { damping: 10, stiffness: 50, restDelta: 0.011 };
 
 function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
-	const x = useSpring(100, spring);
-	const y = useSpring(100, spring);
+	const { x: mouseX, y: mouseY } = usePointerPosition();
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: Quick test with motion.dev example
-	useEffect(() => {
-		if (!ref.current) {
-			return;
-		}
+	const normalizedX = useTransform(
+		() =>
+			mouseX.get() -
+			(ref.current?.offsetLeft ?? 0) -
+			(ref.current?.offsetWidth ?? 0) / 2,
+	);
+	const normalizedY = useTransform(
+		() =>
+			mouseY.get() -
+			(ref.current?.offsetTop ?? 0) -
+			(ref.current?.offsetHeight ?? 0) / 2,
+	);
 
-		const handlePointerMove = ({ clientX, clientY }: MouseEvent) => {
-			const element = ref.current!;
-
-			frame.read(() => {
-				x.set(clientX - element.offsetLeft - element.offsetWidth / 2);
-				y.set(clientY - element.offsetTop - element.offsetHeight / 2);
-			});
-		};
-
-		window.addEventListener("pointermove", handlePointerMove);
-
-		return () => window.removeEventListener("pointermove", handlePointerMove);
-	}, []);
+	const x = useSpring(normalizedX, spring);
+	const y = useSpring(normalizedY, spring);
 
 	return { x, y };
 }
